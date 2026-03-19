@@ -1,0 +1,21 @@
+# みんなの買取 LP制作
+
+## このリポジトリについて
+Claude Codeを使ってみんなの買取のLPを制作するためのリポジトリです。
+
+## 読み込み順序（必ず守ること）
+LPを生成する前に、以下の順番でファイルを読み込むこと。
+
+1. `references/design-system.md`   ← Layer 1: デザインシステム（固定）
+2. `references/lp-structure.md`    ← Layer 2: toB LP構造（固定）
+3. `references/content-source.md`  ← Layer 3: コンテンツ原稿（可変）
+
+## 作業ルール
+- 3つのファイルをすべて読んでからコードを生成すること
+- content-source.md のテキストは一言一句変えずに使うこと
+- design-system.md のカラー・フォント指定を必ず遵守すること
+- lp-structure.md のセクション順序を変えないこと
+- HTML / CSS / JS は index.html の1ファイルにまとめること
+
+## 出力ファイル
+- `index.html`（HTML + CSS + JS を1ファイルにまとめる）
