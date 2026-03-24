@@ -24,16 +24,11 @@
 - 禁止事項: 独自判断でデザインを改変しない・未定義のカラーを使用しない
 
 ## 2. カラーパレット
-| トークン名 | カラーコード | 用途 |
-|-----------|------------|------|
-| --color-bg-primary | #0a0a0a | メイン背景 |
-| --color-bg-secondary | #141414 | セクション背景 |
-| --color-bg-card | #1a1a1a | カード背景 |
-| --color-accent | #c9a84c | ゴールド：CTA・強調・見出しアクセント |
-| --color-accent-light | #e8c97a | ゴールドホバー時 |
-| --color-text-primary | #ffffff | メインテキスト |
-| --color-text-secondary | #a0a0a0 | サブテキスト・補足 |
-| --color-border | #2a2a2a | ボーダー・区切り線 |
+- `references/tokens.json` を参照すること
+- Figmaのバリアブルから書き出したJSONがそのまま入っている
+- `Primitive` 配下の値は直接使用禁止
+- `Semantic` 配下のトークン名をCSS変数名として実装に使うこと
+- tokens.jsonにないカラーコードは使用禁止
 
 ## 3. タイポグラフィ
 
@@ -72,25 +67,25 @@
 ## 5. ボタン
 
 ### メインCTA
-- 背景: --color-accent (#c9a84c)
-- テキスト: #0a0a0a（ダーク）
+- 背景: Semantic.UI.Accent.CTA の値を使用
+- テキスト: Semantic.UI.Text.on-dark の値を使用
 - padding: 16px 40px
 - font-weight: 700
-- border-radius: 4px
-- ホバー: --color-accent-light
+- border-radius: 0px
+- ホバー: Semantic.UI.Accent.CTAHover の値を使用
 
 ### セカンダリボタン（ゴースト型）
 - 背景: transparent
-- border: 1px solid --color-accent
-- テキスト: --color-accent
-- ホバー: 背景を--color-accentに、テキストを#0a0a0aに
+- border: 1px solid Semantic.UI.Accent.CTA
+- テキスト: Semantic.UI.Accent.CTA
+- ホバー: 背景をSemantic.UI.Accent.CTAに、テキストをSemantic.UI.Text.on-darkに
 
 ## 6. カードコンポーネント
-- 背景: --color-bg-card (#1a1a1a)
-- border: 1px solid --color-border
-- border-radius: 8px
+- 背景: Semantic.UI.Background.Dark の値を使用
+- border: 1px solid Semantic.UI.Border の値を使用
+- border-radius: 0px
 - padding: 32px
-- ホバー: border-color を --color-accent に変化
+- ホバー: border-color を Semantic.UI.Accent.CTA に変化
 
 ## 7. コンテンツ幅・レイアウト
 - 最大幅: 1200px
@@ -99,11 +94,11 @@
 - ブレークポイント: 768px（PC/SP切り替え）
 
 ## 8. ヒーローセクションの絶対ルール
-- 背景色: --color-bg-primary
+- 背景色: Semantic.UI.Background.Dark
 - 高さ: min-height 100vh（画面全体を必ず埋めること）
 - レイアウト: 左コピー・CTA / 右ビジュアル（2カラム）/ SP時は縦積み
-- メインCTA: --color-accentのbtn-primaryを必ず左側に配置
-- テキスト色: 見出し --color-text-primary　/ サブコピー --color-text-secondary
+- メインCTA: Semantic.UI.Accent.CTAのbtn-primaryを必ず左側に配置
+- テキスト色: 見出し Semantic.UI.Text.on-dark / サブコピー Semantic.UI.Text.secondary
 
 ## 9. ビジュアル規定
 ### イラストスタイル
@@ -117,19 +112,19 @@
 ## 11. ヘッダー・フッター規定
 ### ヘッダー
 - ロゴ：左端に配置ロゴを配置　/ 高さはPC：24px　SP：20px
-- 背景色：--color-bg-primary　/ スクロール時も同色を維持
+- 背景色：Semantic.UI.Background.Dark / スクロール時も同色を維持
 - PC時：高さ108px　/ 左ロゴ / 中央ナビメニュー（4項目）/ 右CTAボタン・高さ72px
 - SP時：高さ58px　/　左ロゴ / 右ハンバーガーメニューアイコン（ナビは非表示）
-  
+
 ### フッター
-- 背景色：--color-bg-primary
-- 文字色：--color-text-secondary
+- 背景色：Semantic.UI.Background.Dark
+- 文字色：Semantic.UI.Text.secondary
 - ロゴ：左端に配置・ヘッダーと同じロゴ
 - PC時：左ロゴ / 右に規約リンク群を横並び
 - SP時：上ロゴ（中央揃え）/ 下に規約リンク群（中央揃え・縦積み）
 - コピーライト：© 2025 みんなの買取 All Rights Reserved. / 中央揃え・最下部
 
-## 9. 角丸の統一ルール
+## 12. 角丸の統一ルール
 | 要素 | border-radius |
 |------|--------------|
 | ボタン | 0px |
@@ -137,15 +132,16 @@
 | 入力フィールド | 0px |
 | バッジ・タグ | 0px |
 
-## 10. フォーム入力フィールド
-- 背景: #1a1a1a
-- border: 1px solid --color-border
-- テキスト: --color-text-primary
-- placeholder: --color-text-secondary
-- focus: border-color を --color-accent に
+## 13. フォーム入力フィールド
+- 背景: Semantic.UI.Background.Dark
+- border: 1px solid Semantic.UI.Border
+- テキスト: Semantic.UI.Text.on-dark
+- placeholder: Semantic.UI.Text.secondary
+- focus: border-color を Semantic.UI.Accent.CTA に
 
-## 10. 禁止事項
+## 14. 禁止事項
 - box-shadow の使用禁止
 - グラデーション（linear-gradient等）の使用禁止
 - 白背景セクションの使用禁止
 - 未定義のカラーコードの使用禁止
+- Primitiveトークンの直接使用禁止（必ずSemantic経由で参照すること）
